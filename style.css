@@ -53,7 +53,8 @@ p {
     font-size: 3rem;
 }
 
-footer {
-    margin-right: 3rem;
-
+footer>p {
+    font-size: 1em;
+    text-align: center;
+    margin-top: 10em;
 }
