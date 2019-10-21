@@ -1,228 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Paytone+One"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Rock, Paper, Scissors</title>
-    <style>
-        .row {
-            margin: 0;
-        }
+  </head>
 
-        body {
-            font-family: 'Paytone One', sans-serif;
-            background-color: #171D26;
-            color: white;
-
-        }
-
-        .choices {
-            margin-top: 4rem;
-        }
-
-        #rock,
-        #paper,
-        #scissors {
-            transition: transform 0.3s;
-        }
-
-        #rock:hover,
-        #paper:hover,
-        #scissors:hover {
-            transform: scale(1.1);
-            cursor: pointer;
-        }
-
-
-        img {
-            width: 80%;
-            border: 2px solid white;
-            border-radius: 7px;
-
-        }
-
-        .btn {
-            padding: 10px;
-            background-color: #252532;
-            color: white;
-        }
-
-        p {
-            font-size: 1.5rem;
-        }
-
-        #text {
-            font-size: 3rem;
-        }
-
-        #result {
-            margin-top: 3rem;
-            font-size: 3rem;
-        }
-
-        footer {
-            margin-right: 3rem;
-
-        }
-    </style>
-</head>
-
-<body>
+  <body>
     <main>
+      <h1 class="text-center animated slideInLeft slow">Rock</h1>
+      <h1 class="text-center animated slideInDown slow">Paper</h1>
+      <h1 class="text-center animated slideInRight slow">Scissors</h1>
 
-        <h1 class="text-center animated slideInLeft slow">Rock</h1>
-        <h1 class="text-center animated slideInDown slow">Paper</h1>
-        <h1 class="text-center animated slideInRight slow">Scissors</h1>
-
-        <div class="choices container-fluid row text-center animated zoomIn slow">
-            <div id="rock" class="col-md-4 col-sm-4 col-4">
-                <img src="img/rock.jpg" alt="">
-            </div>
-            <div id="paper" class="col-md-4 col-sm-4 col-4 ">
-                <img src=" img/paper.jpg" alt="">
-            </div>
-            <div id="scissors" class="col-md-4 col-sm-4 col-4">
-                <img src=" img/scissors.jpg" alt="">
-            </div>
+      <div class="choices container-fluid row text-center animated zoomIn slow">
+        <div id="rock" class="col-md-4 col-sm-4 col-4">
+          <img src="img/rock.jpg" alt="" />
         </div>
+        <div id="paper" class="col-md-4 col-sm-4 col-4 ">
+          <img src=" img/paper.jpg" alt="" />
+        </div>
+        <div id="scissors" class="col-md-4 col-sm-4 col-4">
+          <img src=" img/scissors.jpg" alt="" />
+        </div>
+      </div>
+      <div id="result" class="text-center">
+        <span id="user-score">0</span>:<span id="comp-score">0</span>
+      </div>
 
+      <p id="text" class="text-center animated infinite pulse"></p>
     </main>
 
-    <div id="result" class="text-center">
-        <span id="user-score">0</span>:<span id="comp-score">0</span>
-    </div>
+    <footer>
+      <p>Nemanja Jakonić, Copyright &copy; 2019</p>
+    </footer>
 
-    <p id="text" class="text-center animated infinite pulse"></p>
-
-
-    <footer class="text-right ">Nemanja Jakonić</footer>
-
-
-    <script>
-        let result;
-        let userScore = 0;
-        let compScore = 0;
-        const userScore_span = document.getElementById("user-score");
-        const compScore_span = document.getElementById("comp-score");
-        const rock_div = document.getElementById("rock");
-        const paper_div = document.getElementById("paper");
-        const scissors_div = document.getElementById("scissors");
-
-        function reset_w() {
-            var r = confirm("Game over!You won!Try again?");
-            if (r == true) {
-                location.reload();
-            } else {
-                window.close();
-            }
-        }
-
-        function reset_l() {
-            var r = confirm("Game over!You lost!Try again?");
-            if (r == true) {
-                location.reload();
-            } else {
-                window.close();
-            }
-        }
-
-
-
-        function victory() {
-            if (result === "Victory!") {
-                userScore++;
-                userScore_span.innerHTML = userScore;
-            }
-            if (userScore === 5) {
-                reset_w();
-            }
-
-        }
-
-        function defeat() {
-            if (result === "Defeat!") {
-                compScore++;
-                compScore_span.innerHTML = compScore;
-            }
-            if (compScore === 5) {
-                reset_l();
-            }
-
-        }
-
-        function Computer() {
-            var array = [
-                "paper",
-                "scissors",
-                "rock"
-            ];
-            var randomItem = array[Math.floor(Math.random() * array.length)];
-            return randomItem;
-        }
-
-
-        function game(player) {
-            var comp = Computer();
-            if (player === comp) {
-                result = "Draw!"
-            } else if (comp === "paper") {
-                if (player === "scissors") {
-                    result = "Victory!";
-                    if (result === "Victory!") {
-                        victory();
-                    }
-
-                }
-                if (player === "rock") {
-                    result = "Defeat!"
-                    defeat();
-                }
-            } else if (comp === "scissors") {
-                if (player === "rock") {
-                    result = "Victory!";
-                    victory();
-                }
-                if (player === "paper") {
-                    result = "Defeat!"
-                    defeat();
-                }
-            } else if (comp === "rock") {
-                if (player === "paper") {
-                    result = "Victory!";
-                    victory();
-                }
-                if (player === "scissors") {
-                    result = "Defeat!";
-                    defeat();
-                }
-            }
-
-            document.getElementById("text").innerHTML = result;
-
-        }
-
-        function main() {
-            rock_div.addEventListener('click', function () {
-                game('rock');
-            });
-            paper_div.addEventListener('click', function () {
-                game('paper');
-            });
-            scissors_div.addEventListener('click', function () {
-                game('scissors');
-            });
-        }
-        main();
-    </script>
-
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
