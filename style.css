@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .row {
   margin: 0;
 }
@@ -57,3 +58,65 @@ footer > p {
   text-align: center;
   margin-top: 10em;
 }
+=======
+.row {
+    margin: 0;
+}
+
+body {
+    font-family: 'Paytone One', sans-serif;
+    background-color: #171D26;
+    color: white;
+
+}
+
+.choices {
+    margin-top: 4rem;
+}
+
+#rock,
+#paper,
+#scissors {
+    transition: transform 0.3s;
+}
+
+#rock:hover,
+#paper:hover,
+#scissors:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+img {
+    width: 80%;
+    border: 2px solid white;
+    border-radius: 7px;
+
+}
+
+.btn {
+    padding: 10px;
+    background-color: #252532;
+    color: white;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+#text {
+    font-size: 3rem;
+}
+
+#result {
+    margin-top: 3rem;
+    font-size: 3rem;
+}
+
+footer>p {
+    font-size: 1em;
+    text-align: center;
+    margin-top: 10em;
+}
+>>>>>>> d36d5d41447ea046465df4ae126d8156f201c5ab
