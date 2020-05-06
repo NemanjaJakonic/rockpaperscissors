@@ -24,32 +24,146 @@
 
   <body>
     <main>
-      <h1 class="text-center animated slideInLeft slow">Rock</h1>
-      <h1 class="text-center animated slideInDown slow">Paper</h1>
-      <h1 class="text-center animated slideInRight slow">Scissors</h1>
-
+      <h1 class="text-center pb-3">Rock, paper, scissors</h1>
+      <!-- Scores -->
+      <div class="scoreboard mt-3">
+        <p class="text-center text-uppercase">Best scores</p>
+        <ol id="scoreboard"></ol>
+      </div>
+      <!-- Choices -->
       <div class="choices container-fluid row text-center animated zoomIn slow">
         <div id="rock" class="col-md-4 col-sm-4 col-4">
+          <h2 class="text-center">Rock!</h2>
           <img src="img/rock.jpg" alt="" />
         </div>
-        <div id="paper" class="col-md-4 col-sm-4 col-4 ">
+        <div id="paper" class="col-md-4 col-sm-4 col-4">
+          <h2 class="text-center">Paper!</h2>
           <img src=" img/paper.jpg" alt="" />
         </div>
         <div id="scissors" class="col-md-4 col-sm-4 col-4">
+          <h2 class="text-center">Scissors!</h2>
           <img src=" img/scissors.jpg" alt="" />
         </div>
       </div>
+      <!-- Results -->
       <div id="result" class="text-center">
         <span id="user-score">0</span>:<span id="comp-score">0</span>
       </div>
+      <p id="text1" class="text-center"></p>
 
       <p id="text" class="text-center animated infinite pulse"></p>
+      <div class="p-2 text-center">
+        Won rounds: <span class="won-rounds">0</span>
+      </div>
+
+      <!-- Toast -->
+      <div
+        data-delay="2000"
+        class="toast"
+        style="position: absolute; top: 5px; right: 5px;"
+      >
+        <div class="toast-header">
+          <strong class="mr-auto">Success!</strong>
+        </div>
+        <div class="toast-body"></div>
+      </div>
+
+      <!-- welcomeModal -->
+      <div
+        class="modal fade"
+        id="welcomeModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="welcomeModalTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Welcome!
+              </h5>
+            </div>
+            <div class="modal-body">
+              <p>
+                Scoring rules:<br />Every three wins, you win one round. Final
+                score is the most consecutive won rounds.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary btn-block"
+                data-dismiss="modal"
+              >
+                Start
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- resultsModal -->
+      <div
+        class="modal fade"
+        id="resultsModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="resultsModalTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="resultsModalTitle">
+                Game Over!
+              </h5>
+            </div>
+            <div class="modal-body">
+              <p>Save your results:</p>
+              <form action="" id="publishScores">
+                <p>
+                  <label>Name:</label>
+                  <input type="text" name="name" id="name" required />
+                </p>
+                <p>You have won <span class="won-rounds">0</span> round</p>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  Save your score
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
       <p>Nemanja Jakonić, Copyright &copy; 2019</p>
     </footer>
-
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>

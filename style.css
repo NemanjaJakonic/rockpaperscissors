@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: 'Paytone One', sans-serif;
+  font-family: "Paytone One", sans-serif;
   background-color: #171d26;
   color: white;
 }
@@ -11,9 +11,11 @@ body {
 .choices {
   margin-top: 4rem;
 }
+
 main {
   overflow: hidden;
 }
+
 #rock,
 #paper,
 #scissors {
@@ -25,6 +27,17 @@ main {
 #scissors:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.choices h2 {
+  opacity: 0;
+}
+
+#rock:hover h2,
+#paper:hover h2,
+#scissors:hover h2 {
+  transition: 0.7s;
+  opacity: 1;
 }
 
 img {
@@ -40,20 +53,138 @@ img {
 }
 
 p {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 #text {
+  min-height: 3rem;
   font-size: 3rem;
+}
+
+#text1 {
+  min-height: 1rem;
+  font-size: 1rem;
+}
+
+#text2 {
+  min-height: 1rem;
+  font-size: 1rem;
 }
 
 #result {
-  margin-top: 3rem;
-  font-size: 3rem;
+  margin-top: 2rem;
+  font-size: 2rem;
 }
 
-footer > p {
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
   font-size: 1em;
   text-align: center;
-  margin-top: 10em;
 }
+
+.modal {
+  color: black;
+}
+
+.card {
+  background-color: transparent;
+  color: white;
+}
+
+#won-round-info {
+  height: 1rem;
+}
+
+li:nth-of-type(1n + 11) {
+  display: none;
+}
+
+.scoreboard {
+  padding: 0.5rem;
+  margin: 0 auto;
+  width: 400px;
+  height: 190px;
+  border: 1px dashed #d03c3e;
+}
+
+#scoreboard {
+  columns: 2;
+}
+
+#scoreboard li {
+  padding-right: 25px;
+}
+
+#scoreboard span {
+  float: right;
+}
+
+.won-rounds {
+  min-height: 1rem;
+}
+
+.won-rounds,
+#text {
+  color: #d03c3e;
+}
+
+.toast {
+  background-color: #171d26;
+  border: 1px solid #d03c3e;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (max-width: 768px) {
+  img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .choices h2 {
+    font-size: 1rem;
+  }
+
+  .scoreboard {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    font-size: 0.9rem;
+  }
+
+  #text {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .scoreboard {
+    font-size: 0.8rem;
+  }
+}
+
+/* 
+.scoreboard {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 200px;
+}
+
+
+
+.scoreboard:hover #scoreboard {
+  transition: 0.5s;
+  top: 50px;
+} */
+
+/* header {
+  display: flex;
+  justify-content: space-between;
+} */
