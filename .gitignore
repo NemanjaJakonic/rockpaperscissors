@@ -1,1 +1,3 @@
-netlify.toml
+
+.env
+node_modules/

@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 let result;
 let userScore = 0;
 let compScore = 0;
@@ -18,7 +20,7 @@ play_again[1].addEventListener("click", reset);
 play_again[2].addEventListener("click", reset);
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: apiKey,
+  apiKey: process.env.apiKey,
   authDomain: "rock-paper-scissors-5eb47.firebaseapp.com",
   databaseURL: "https://rock-paper-scissors-5eb47.firebaseio.com",
   projectId: "rock-paper-scissors-5eb47",
