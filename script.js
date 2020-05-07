@@ -18,7 +18,7 @@ play_again[1].addEventListener("click", reset);
 play_again[2].addEventListener("click", reset);
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyCeG5l2lZBGlTffMYorKcDWh6LWFP7XSQQ",
+  apiKey: apiKey,
   authDomain: "rock-paper-scissors-5eb47.firebaseapp.com",
   databaseURL: "https://rock-paper-scissors-5eb47.firebaseio.com",
   projectId: "rock-paper-scissors-5eb47",
